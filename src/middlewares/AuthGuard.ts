@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import { UserPayload } from "@/modules/auth/dtos/UserPayloadDto";
 import { RequestWithUser } from "@/interfaces/RequestWithUser";
 
-export function verifyToken(
+export function authGuard(
   request: RequestWithUser,
   response: Response,
   next: NextFunction

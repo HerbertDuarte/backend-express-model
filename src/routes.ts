@@ -5,7 +5,7 @@ import { UpdateUserController } from "./modules/user/controllers/UpdateUserContr
 import { DeleteUserController } from "./modules/user/controllers/DeleteUserController";
 import { FindUserController } from "./modules/user/controllers/FindUserController";
 import { UserAuthController } from "./modules/auth/controllers/UserAuthController";
-import { verifyToken } from "./middlewares/verifyToken";
+import { authGuard } from "./middlewares/AuthGuard";
 
 const createUserControler = new CreateUserController();
 const listUsersController = new ListUsersController();
@@ -16,11 +16,11 @@ const userAuthController = new UserAuthController()
 
 const router = Router();
 
-router.get("/user", verifyToken, listUsersController.handle);
-router.get("/user/:id", verifyToken, findUserController.handle);
 router.post("/user", createUserControler.handle);
-router.put("/user/:id",verifyToken, updateUserController.handle);
-router.delete("/user/:id",verifyToken, deleteUserController.handle);
+router.get("/user", authGuard, listUsersController.handle);
+router.get("/user/:id", authGuard, findUserController.handle);
+router.put("/user/:id",authGuard, updateUserController.handle);
+router.delete("/user/:id",authGuard, deleteUserController.handle);
 router.post("/user/auth", userAuthController.handle);
 
 export { router };

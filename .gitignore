@@ -1,3 +1,6 @@
 node_modules
-# Keep environment variables out of version control
+dist
 .env
+yarn.error
+yarn.lock
+package-lock.json

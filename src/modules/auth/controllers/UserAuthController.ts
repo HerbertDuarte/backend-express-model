@@ -1,9 +1,8 @@
 import prisma from "@/database/prisma";
 import { UserAuthBody } from "../dtos/UserAuthDto";
-import { Request, Response } from "express";
+import {  Response } from "express";
 import bcrypt from "bcrypt";
 import { generateToken } from "../utils/GenerateToken";
-import { UserPayload } from "../dtos/UserPayloadDto";
 import { RequestWithUser } from "@/interfaces/RequestWithUser";
 
 export class UserAuthController {

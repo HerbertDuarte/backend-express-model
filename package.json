@@ -4,9 +4,12 @@
   "description": "Backend modelo usando Typescript, Express, Prisma, Zod e PostgreSQL.",
   "main": "src/server.ts",
   "scripts": {
-    "build" : "tsc src/server.ts",
+    "build": "tsc --build",
+    "start": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./ -o ./dist",
+    "server": "node dist/src/server.js",
     "dev": "tsx watch --env-file .env src/server.ts"
-  },"prisma": {
+  },
+  "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
   "keywords": [],
@@ -19,6 +22,7 @@
     "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^20.11.5",
     "prisma": "^5.8.1",
+    "tscpaths": "^0.0.9",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3",
     "zod": "^3.22.4"

@@ -1,10 +1,11 @@
 import prisma from "@/database/prisma";
 import { UserAuthBody } from "../dtos/UserAuthDto";
-import {  Response } from "express";
+import { Response } from "express";
 import bcrypt from "bcrypt";
 import { generateToken } from "../utils/GenerateToken";
 import { RequestWithUser } from "@/interfaces/RequestWithUser";
-
+import print from "@/utils/Loggers/print";
+import logger from "@/utils/Loggers/logger";
 export class UserAuthController {
   async handle(request: RequestWithUser, response: Response) {
     const { email, password } = UserAuthBody.parse(request.body);
@@ -26,10 +27,11 @@ export class UserAuthController {
 
       const token = generateToken(payload);
       request.user = payload;
-      
+
+      logger.debug(`DEBUG [LOGIN] [USER] ID ${userFound.id}`);
       response.status(200).json({
         access_token: token,
-        user : payload
+        user: payload,
       });
     } catch (e) {}
   }

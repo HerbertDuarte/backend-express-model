@@ -2,6 +2,8 @@ import express from "express";
 import { router } from "./routes";
 import cors from "cors";
 import print from "./utils/Loggers/print";
+import listRoutes from "./utils/Loggers/listRoutes";
+import logger from "./utils/Loggers/logger";
 
 const PORT = Number(process.env.PORT || 3000);
 const app = express();
@@ -14,5 +16,6 @@ app.get("/", (request, response) => {
 });
 
 app.listen(PORT, () => {
-  print("🚀 HTTP server running on port " + PORT + "...");
+  listRoutes()
+  logger.success("LOG [Express] 🚀 HTTP server running on port " + PORT + "...");
 });

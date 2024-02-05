@@ -4,7 +4,6 @@ import { Response } from "express";
 import bcrypt from "bcrypt";
 import { generateToken } from "../utils/GenerateToken";
 import { RequestWithUser } from "@/interfaces/RequestWithUser";
-import print from "@/utils/Loggers/print";
 import logger from "@/utils/Loggers/logger";
 export class UserAuthController {
   async handle(request: RequestWithUser, response: Response) {

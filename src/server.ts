@@ -1,7 +1,6 @@
 import express from "express";
 import { router } from "./routes";
 import cors from "cors";
-import print from "./utils/Loggers/print";
 import listRoutes from "./utils/Loggers/listRoutes";
 import logger from "./utils/Loggers/logger";
 

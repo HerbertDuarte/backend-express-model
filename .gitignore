@@ -3,4 +3,5 @@ dist
 .env
 yarn.error
 yarn.lock
+pnpm-lock.yaml
 package-lock.json

@@ -1,9 +1,8 @@
 # comandos de inicialização
 
 - npm init -y
-- npm i typescript @types/node @types/express tsx -D
+- npm i typescript @types/node @types/express prisma tsx -D
 - npm i express sqlite3 
-- npm i prisma -D
 - npm prisma init --datasource-provider sqlite
 
 # scripts

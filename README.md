@@ -2,6 +2,7 @@
 
 - npm init -y
 - npm i typescript @types/node @types/express prisma tsx -D
+- npx tsc --init
 - npm i express sqlite3 
 - npm prisma init --datasource-provider sqlite
 
